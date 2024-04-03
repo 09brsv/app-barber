@@ -1,4 +1,4 @@
-import { MainStack } from '@mb/stacks/MainStack';
+import { MainStack } from '@mb/stacks';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
