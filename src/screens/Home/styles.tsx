@@ -26,12 +26,6 @@ export const HeaderTitle = styled.Text`
 `
 
 
-export const SearchButton = styled.TouchableOpacity`
-  width: 26px;
-  height: 26px;
-`
-
-
 export const LocationArea = styled.View`
   background-color: #4eadbe;
   height: 60px;
@@ -57,12 +51,4 @@ export const LocationFinder = styled.TouchableOpacity`
   width: 24px;
   height: 24px;
   margin-right: 20px;
-`
-
-export const LoadingIcon = styled.ActivityIndicator`
-  margin-top: 50px;
-`
-
-export const ListArea = styled.View`
-  margin: 30px 0;
 `

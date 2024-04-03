@@ -2,23 +2,23 @@ import { TBarber } from "@mb/@types/barber";
 import { MyLocationIcon, SearchIcon } from "@mb/assets";
 import { BarberItem } from "@mb/components";
 import { BarberService } from "@mb/service/barbers";
+import { ListArea, SearchButton } from "@mb/shared/styles";
+import { useBarberStore } from "@mb/store";
 import Geolocation from "@react-native-community/geolocation";
 import { ParamListBase } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useEffect, useState } from "react";
 import { Platform, RefreshControl } from "react-native";
 import { PERMISSIONS, request } from "react-native-permissions";
+import { LoadingIcon } from "../Barber/styles";
 import {
 	Container,
 	HeaderArea,
 	HeaderTitle,
-	ListArea,
-	LoadingIcon,
 	LocationArea,
 	LocationFinder,
 	LocationInput,
 	Scroller,
-	SearchButton,
 } from "./styles";
 
 export const Home = ({
@@ -29,8 +29,8 @@ export const Home = ({
 	const [locationText, setLocationText] = useState("");
 	const [coordinates, setCoordinates] = useState<{ latitude: number; longitude: number } | null>(null);
 	const [loading, setLoading] = useState(false);
-	const [barbers, setBarbers] = useState<TBarber[]>([]);
 	const [refreshing, setRefreshing] = useState(false);
+	const { setBarbers, barbers } = useBarberStore();
 
 	const handleLocationFinder = async () => {
 		setCoordinates(null);
@@ -79,7 +79,6 @@ export const Home = ({
 
 	const getBarbers = async () => {
 		setLoading(true);
-		setBarbers([]);
 		let coords:
 			| {
 					lat?: number;
